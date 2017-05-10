@@ -1,6 +1,7 @@
 # ZoneMinder Python Plugin
 #
 # Author: zaraki673
+# http://zoneminder.readthedocs.io/en/latest/api.html
 #
 """
 <plugin key="ZoneMinder" name="ZoneMinder Controller plugin" author="zaraki673" version="1.0.0">
