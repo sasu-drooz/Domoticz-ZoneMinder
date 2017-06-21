@@ -65,10 +65,10 @@ class BasePlugin:
 	def onStop(self):
 		Domoticz.Log("onStop called")
 
-	def onConnect(self, Status, Description):
+	def onConnect(self, Connection, Status, Description):
 		Domoticz.Log("onConnect called")
 
-	def onMessage(self, Data, Status, Extra):
+	def onMessage(self, Connection, Data, Status, Extra):
 		Domoticz.Log("onMessage called")
 
 	def onCommand(self, Unit, Command, Level, Hue):
@@ -150,7 +150,7 @@ class BasePlugin:
 	def onNotification(self, Name, Subject, Text, Status, Priority, Sound, ImageFile):
 		Domoticz.Log("Notification: " + Name + "," + Subject + "," + Text + "," + Status + "," + str(Priority) + "," + Sound + "," + ImageFile)
 
-	def onDisconnect(self):
+	def onDisconnect(self, Connection):
 		Domoticz.Log("onDisconnect called")
 
 	def onHeartbeat(self):
@@ -160,36 +160,36 @@ global _plugin
 _plugin = BasePlugin()
 
 def onStart():
-	global _plugin
-	_plugin.onStart()
+    global _plugin
+    _plugin.onStart()
 
 def onStop():
-	global _plugin
-	_plugin.onStop()
+    global _plugin
+    _plugin.onStop()
 
-def onConnect(Status, Description):
-	global _plugin
-	_plugin.onConnect(Status, Description)
+def onConnect(Connection, Status, Description):
+    global _plugin
+    _plugin.onConnect(Connection, Status, Description)
 
-def onMessage(Data, Status, Extra):
-	global _plugin
-	_plugin.onMessage(Data, Status, Extra)
+def onMessage(Connection, Data, Status, Extra):
+    global _plugin
+    _plugin.onMessage(Connection, Data, Status, Extra)
 
 def onCommand(Unit, Command, Level, Hue):
-	global _plugin
-	_plugin.onCommand(Unit, Command, Level, Hue)
+    global _plugin
+    _plugin.onCommand(Unit, Command, Level, Hue)
 
-def onNotification(Name, Subject, Text, Status, Priority, Sound, ImageFile):
-	global _plugin
-	_plugin.onNotification(Name, Subject, Text, Status, Priority, Sound, ImageFile)
+def onNotification(Data):
+    global _plugin
+    _plugin.onNotification(Data)
 
-def onDisconnect():
-	global _plugin
-	_plugin.onDisconnect()
+def onDisconnect(Connection):
+    global _plugin
+    _plugin.onDisconnect(Connection)
 
 def onHeartbeat():
-	global _plugin
-	_plugin.onHeartbeat()
+    global _plugin
+    _plugin.onHeartbeat()
 
 	# Generic helper functions
 def DumpConfigToLog():
