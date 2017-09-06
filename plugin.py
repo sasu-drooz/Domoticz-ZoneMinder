@@ -4,7 +4,7 @@
 # http://zoneminder.readthedocs.io/en/latest/api.html
 #
 """
-<plugin key="ZoneMinder" name="ZoneMinder Controller plugin" author="zaraki673" version="1.0.0">
+<plugin key="ZoneMinder" name="ZoneMinder Controller plugin" author="zaraki673" version="1.0.1" externallink="http://zoneminder.readthedocs.io/en/stable/api.html">
 	<params>
 		<param field="Mode1" label="ZM API url" width="150px" required="true"/>
 		<param field="Username" label="ZM Login" width="150px" required="false"/>
